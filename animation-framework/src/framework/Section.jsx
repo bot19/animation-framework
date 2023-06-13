@@ -15,8 +15,6 @@ export const Section = ({
   header,
   footer,
 }) => {
-  console.log("section", background);
-
   return (
     <section style={{ backgroundColor: background }}>
       {header && <header />}
