@@ -5,6 +5,7 @@ An animation framework that allows you to animate in section elements on a webpa
 [Image]
 
 ## 📝 Requirements
+
 1. each page has multiple sections
 2. each section can have the following elements: optional background header/footer, colour and content (heading, text, image)
 3. You should be able to animate in elements with different timings and direcions
@@ -26,4 +27,4 @@ An animation framework that allows you to animate in section elements on a webpa
 
 ## 📄 Other things
 
-1. ...
+1. Cool CSS colours & their names [here](https://www.quackit.com/css/css_color_codes.cfm)
