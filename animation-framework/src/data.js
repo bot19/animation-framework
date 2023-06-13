@@ -21,7 +21,7 @@ export const PAGE_DATA = {
       heading: "A section with 2 Col",
       content:
         "Icon fonts have become extremely popular in recent times and due to an excellent reason. They scale really nicely and increase in size with enhanced quality, as compared to raster images. In addition to that, since the font icon is essentially a text, you can easily apply CSS to change the color and adjust the size.",
-      image: "vite",
+      image: "react",
       header: false,
       footer: true,
     },

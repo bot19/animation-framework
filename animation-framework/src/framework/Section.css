@@ -1,0 +1,35 @@
+section {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+article {
+  padding: 2rem;
+  max-width: 50rem;
+}
+
+article div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+article p {
+  margin: 0;
+}
+
+.logo {
+  height: 20rem;
+  padding: 1rem;
+}
+
+h1 {
+  margin: 0 0 2rem;
+}
+
+header,
+footer {
+  display: none;
+}
