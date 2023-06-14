@@ -14,6 +14,7 @@ export const Section = ({
   image,
   header,
   footer,
+  nextSectionBg,
 }) => {
   return (
     <section style={{ backgroundColor: background }}>
@@ -27,7 +28,13 @@ export const Section = ({
           {Boolean(content.length) && <p>{content}</p>}
         </div>
       </article>
-      {footer && <footer />}
+      {footer && (
+        <footer
+          style={{
+            backgroundImage: `linear-gradient(to bottom, ${background}, ${nextSectionBg})`,
+          }}
+        />
+      )}
     </section>
   );
 };

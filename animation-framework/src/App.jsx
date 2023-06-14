@@ -8,9 +8,21 @@ function App() {
 
   return (
     <>
-      {pageData.sections.map((section) => (
-        <Section key={section.name} {...section} />
-      ))}
+      {pageData.sections.map((section, i) => {
+        // need to know the next section's bg colour to transition to it
+        const nextSectionBg = pageData.sections[i + 1]
+          ? pageData.sections[i + 1].background
+          : pageData.sections[i].background;
+
+        return (
+          <Section
+            key={section.name}
+            {...section}
+            header={i === 0}
+            nextSectionBg={nextSectionBg}
+          />
+        );
+      })}
     </>
   );
 }
