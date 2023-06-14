@@ -2,6 +2,8 @@
 
 An animation framework prototype/proof-of-concept (PoC) that allows you to animate in section elements on a webpage with many sections.
 
+This set of requirements is for a particular project so it is very specific & in its entirity might not be applicable to other projects, but parts of it might be useful to repurpose.
+
 [Image]
 
 ## 📝 Requirements
@@ -19,15 +21,18 @@ An animation framework prototype/proof-of-concept (PoC) that allows you to anima
 
 ## 🖥️ Tech & resources
 
-1. vite.js
-2. react.js
-3. ...
+1. [vite.js](https://vitejs.dev/)
+2. [react.js](https://react.dev/)
+3. [ChatGPT 3.5](https://chat.openai.com/) assisted
 
 ## 🚀 Usage
 
-1. ...
+1. `cd animation-frameework`
+2. `yarn dev` & go to localhost url to see it in action
 
 ## 📄 Other things
 
 1. Cool CSS colours & their names [here](https://www.quackit.com/css/css_color_codes.cfm)
-2. this set of requirements is for a particular project so it is very specific & in its entirity might not be applicable to other projects, but parts of it should be useful to repurpose
+2. helpful: https://css-tricks.com/an-explanation-of-how-the-intersection-observer-watches/
+3. [helpful codepen](https://codepen.io/bot19/pen/VwVvRbq) from the article above (my fork, fixed an issue)
+4. ChatGPT 3.5 assisted [demo](https://codesandbox.io/s/test-react-intersectional-observer-set-section-as-active-when-majority-in-vp-9lvnsv) of functionality required
