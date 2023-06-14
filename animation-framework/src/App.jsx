@@ -5,24 +5,42 @@ import { Section } from "./framework/Section";
 
 function App() {
   const [pageData] = useState(PAGE_DATA);
+  const [activeSection, setActiveSection] = useState(null);
+  const [navActive, setNavActive] = useState(null);
+  const stateRel = {
+    activeSection,
+    setActiveSection,
+    setNavActive,
+  };
 
   return (
     <>
-      {pageData.sections.map((section, i) => {
-        // need to know the next section's bg colour to transition to it
-        const nextSectionBg = pageData.sections[i + 1]
-          ? pageData.sections[i + 1].background
-          : pageData.sections[i].background;
+      <nav>
+        <h1>Animation framework PoC</h1>
+        {navActive && (
+          <p>
+            Section active <b>{activeSection}</b> / Section controlling nav{" "}
+            <b>{navActive}</b>
+          </p>
+        )}
+      </nav>
+      <main>
+        {pageData.sections.map((section, i) => {
+          // need to know the next section's bg colour to transition to it
+          const nextSectionBg = pageData.sections[i + 1]
+            ? pageData.sections[i + 1].background
+            : pageData.sections[i].background;
 
-        return (
-          <Section
-            key={section.name}
-            {...section}
-            header={i === 0}
-            nextSectionBg={nextSectionBg}
-          />
-        );
-      })}
+          return (
+            <Section
+              key={section.name}
+              {...{ ...section, ...stateRel }}
+              header={i === 0}
+              nextSectionBg={nextSectionBg}
+            />
+          );
+        })}
+      </main>
     </>
   );
 }

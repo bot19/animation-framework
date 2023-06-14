@@ -1,4 +1,4 @@
-/* originally from Vite; modified slightly */
+/* originally from Vite; modified + custom PoC CSS */
 #root {
   max-width: 100%;
   margin: 0;
@@ -39,4 +39,32 @@
 
 .read-the-docs {
   color: #888;
+}
+
+nav {
+  height: 8rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 4rem;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  /* border: 0.5rem dashed white;
+  box-sizing: border-box; */
+  /* top: 0;
+  border-radius: 0 0 2rem 2rem;
+  border-top: 0; */
+}
+
+nav p {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+nav b {
+  color: #fff;
+}
+
+main {
+  margin-top: -8rem;
 }

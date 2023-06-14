@@ -5,6 +5,7 @@
 export const PAGE_DATA = {
   sections: [
     {
+      id: "section-1",
       name: "section 1 hero HotPink", // name of section
       nav: true, // true to show BG appropriate to section (1)
       background: "HotPink", // name of CSS colour
@@ -15,6 +16,7 @@ export const PAGE_DATA = {
       footer: true,
     },
     {
+      id: "section-2",
       name: "section 2 Tomato",
       nav: true,
       background: "Tomato",
@@ -26,6 +28,7 @@ export const PAGE_DATA = {
       footer: true,
     },
     {
+      id: "section-3",
       name: "section 3 MediumOrchid",
       nav: true,
       background: "MediumOrchid",
@@ -37,6 +40,7 @@ export const PAGE_DATA = {
       footer: true,
     },
     {
+      id: "section-4",
       name: "section 4 DeepSkyBlue",
       nav: false,
       background: "DeepSkyBlue",
