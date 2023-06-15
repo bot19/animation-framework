@@ -1,6 +1,7 @@
 /**
  * would be better with TS, but need this ASAP
  * (1) 1st section works slightly diff to other sections, explained indepth incomponent; need this so nav content can be seen above below elements clearly
+ * ie: 1st section has a bg header element
  * it's important that the sections are in order of their rendered position from page top to bottom
  */
 export const PAGE_DATA = {
@@ -12,7 +13,6 @@ export const PAGE_DATA = {
         name: "section 1 hero HotPink", // name of section
         navBackground: true, // true to show nav BG appropriate to section (1)
         background: "HotPink", // name of CSS colour
-        header: true, // only hero/1st section can have a header
         footer: true, // optional background footer; has section bg colour transition
       },
       content: {

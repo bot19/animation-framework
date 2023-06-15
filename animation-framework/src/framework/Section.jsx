@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useRef } from "react";
 import "./Section.css";
 import viteLogo from "/vite.svg";
 import reactLogo from "../assets/react.svg";
@@ -8,14 +8,18 @@ const logoSrc = {
   react: reactLogo,
 };
 
+/**
+ * only hero/1st section has a bg header
+ */
 export const Section = ({
   meta,
   content,
   nextSectionBg,
   setActiveSection,
   setNavActive,
+  heroHeaderRef,
 }) => {
-  const { id, background, header, footer } = meta;
+  const { id, background, position, footer } = meta;
   const { heading, text, image } = content;
   const sectionRef = useRef();
 
@@ -29,11 +33,7 @@ export const Section = ({
     const handleIntersection = (entries) => {
       // should only be 1 entry, as each section has own IO
       entries.forEach((entry) => {
-        console.log(
-          "entry",
-          entry.isIntersecting,
-          entry.boundingClientRect.top
-        );
+        // console.info("entry", entry.isIntersecting);
         if (entry.isIntersecting) {
           setActiveSection(meta);
           setNavActive(meta);
@@ -58,7 +58,7 @@ export const Section = ({
 
   return (
     <section ref={sectionRef} id={id} style={{ backgroundColor: background }}>
-      {header && <header />}
+      {position === 1 && <header ref={heroHeaderRef} />}
       <article>
         {Boolean(heading.length) && <h2>{heading}</h2>}
         <div>

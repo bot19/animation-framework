@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { PAGE_DATA } from "./data";
 import { Section } from "./framework/Section";
 import { Nav } from "./framework/Nav";
@@ -14,10 +14,11 @@ function App() {
     setActiveSection,
     setNavActive,
   };
+  const heroHeaderRef = useRef(); // only hero section has a header
 
   return (
     <>
-      <Nav {...{ activeSection, navActive }} />
+      <Nav {...{ activeSection, navActive, heroHeaderRef }} />
       <main>
         {pageData.sections.map((section, i) => {
           // need to know the next section's bg colour to transition to it
@@ -31,6 +32,7 @@ function App() {
               {...{ ...section, ...stateRel }}
               header={i === 0}
               nextSectionBg={nextSectionBg}
+              heroHeaderRef={heroHeaderRef}
             />
           );
         })}
