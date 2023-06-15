@@ -7,11 +7,10 @@ nav {
   position: sticky;
   top: 0;
   z-index: 999;
-  /* border: 0.5rem dashed white;
-  box-sizing: border-box; */
-  /* top: 0;
+  border: 0.5rem dashed white;
+  box-sizing: border-box;
   border-radius: 0 0 2rem 2rem;
-  border-top: 0; */
+  border-top: 0;
 }
 
 nav p {

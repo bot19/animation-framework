@@ -22,12 +22,12 @@ function App() {
         {pageData.sections.map((section, i) => {
           // need to know the next section's bg colour to transition to it
           const nextSectionBg = pageData.sections[i + 1]
-            ? pageData.sections[i + 1].background
-            : pageData.sections[i].background;
+            ? pageData.sections[i + 1].meta.background
+            : pageData.sections[i].meta.background;
 
           return (
             <Section
-              key={section.name}
+              key={section.meta.name}
               {...{ ...section, ...stateRel }}
               header={i === 0}
               nextSectionBg={nextSectionBg}
