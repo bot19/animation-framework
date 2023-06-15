@@ -12,15 +12,18 @@ const logoSrc = {
  * only hero/1st section has a bg header
  */
 export const Section = ({
-  meta,
-  content,
+  meta = {},
+  content = {},
   nextSectionBg,
+  activeSection,
   setActiveSection,
   heroHeaderRef,
 }) => {
   const { id, background, position, footer } = meta;
   const { heading, text, image } = content;
   const sectionRef = useRef();
+  const sectionActive = id === activeSection?.id;
+  const animatedElement = `${sectionActive ? "animate" : ""}`;
 
   useEffect(() => {
     const options = {
@@ -56,18 +59,40 @@ export const Section = ({
 
   return (
     <section ref={sectionRef} id={id} style={{ backgroundColor: background }}>
-      {position === 1 && <header ref={heroHeaderRef} />}
+      {position === 1 && (
+        <header
+          ref={heroHeaderRef}
+          className={`to-animate animate-slide-in-top ${animatedElement}`}
+        />
+      )}
       <article>
-        {Boolean(heading.length) && <h2>{heading}</h2>}
+        {Boolean(heading.length) && (
+          <h2
+            className={`to-animate animate-slide-in-left animate-order-2 ${animatedElement}`}
+          >
+            {heading}
+          </h2>
+        )}
         <div>
           {Boolean(image.length) && (
-            <img src={logoSrc[image]} className="logo" alt={`${image} logo`} />
+            <img
+              src={logoSrc[image]}
+              className={`logo to-animate animate-slide-in-left animate-order-3 ${animatedElement}`}
+              alt={`${image} logo`}
+            />
           )}
-          {Boolean(text.length) && <p>{text}</p>}
+          {Boolean(text.length) && (
+            <p
+              className={`to-animate animate-slide-in-right animate-order-3 ${animatedElement}`}
+            >
+              {text}
+            </p>
+          )}
         </div>
       </article>
       {footer && (
         <footer
+          className={`to-animate animate-slide-in-bottom ${animatedElement}`}
           style={{
             backgroundImage: `linear-gradient(to bottom, ${background}, ${nextSectionBg})`,
           }}

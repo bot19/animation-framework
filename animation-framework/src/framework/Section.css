@@ -53,3 +53,84 @@ footer {
   border-bottom: 0;
   height: 16rem;
 }
+
+/*
+ * animation requirements:
+ * need 3 speeds/order; 1st, 2nd, 3rd
+ * need 4 directions: top, right, bottom, left
+*/
+.to-animate {
+  opacity: 0;
+}
+
+.animate-slide-in-top {
+  animation: slide-in-top 0.3s ease-out forwards paused;
+}
+
+.animate-slide-in-left {
+  animation: slide-in-left 0.3s ease-out forwards paused;
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.3s ease-out forwards paused;
+}
+
+.animate-slide-in-bottom {
+  animation: slide-in-bottom 0.3s ease-out forwards paused;
+}
+
+.animate-order-2 {
+  animation-delay: 0.25s;
+}
+
+.animate-order-3 {
+  animation-delay: 0.5s;
+}
+
+.animate {
+  animation-play-state: running;
+}
+
+@keyframes slide-in-top {
+  0% {
+    opacity: 0;
+    margin-top: -8rem;
+  }
+  100% {
+    opacity: 1;
+    margin-top: 0;
+  }
+}
+
+@keyframes slide-in-left {
+  0% {
+    opacity: 0;
+    margin-left: -8rem;
+  }
+  100% {
+    opacity: 1;
+    margin-left: 0;
+  }
+}
+
+@keyframes slide-in-right {
+  0% {
+    opacity: 0;
+    margin-right: -8rem;
+  }
+  100% {
+    opacity: 1;
+    margin-right: 0;
+  }
+}
+
+@keyframes slide-in-bottom {
+  0% {
+    opacity: 0;
+    margin-bottom: -8rem;
+  }
+  100% {
+    opacity: 1;
+    margin-bottom: 0;
+  }
+}
