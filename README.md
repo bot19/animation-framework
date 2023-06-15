@@ -10,14 +10,14 @@ This set of requirements is for a particular project so it is very specific & in
 
 1. each page has multiple sections
 2. each section can have the following elements: optional background footer, colour and content (heading, text, image)
-3. You should be able to animate in elements with different timings and direcions
-4. animations to be triggered by scrolling into sections
-5. a section can also dictate what the nav should be like when that section is active
-6. to be done using react.js
+3. only the 1st section will have a background header, if nav bg is set to `true` it should kick in as you begin to scroll down the page, not on render when page is in original position
+4. You should be able to animate in elements with different timings and direcions
+5. animations to be triggered by scrolling into sections; once animated in, they do not need to animate out on reverse scroll
+6. a section can also dictate what the nav should be like when that section is active
 7. on window resize, calculations should update in an optimised way so everything works correctly
 8. this PoC is limited to desktop resolution (not responsive)
 9. sections should be a reuseable component
-10. only the 1st section will have a header
+10. use react.js
 
 ## 🖥️ Tech & resources
 
