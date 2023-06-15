@@ -7,11 +7,15 @@ nav {
   position: sticky;
   top: 0;
   z-index: 999;
-  border: 0.5rem dashed white;
+  border: 0.5rem dashed transparent;
   box-sizing: border-box;
   border-radius: 0 0 2rem 2rem;
   border-top: 0;
   transition: all 0.5s ease-out;
+}
+
+nav.background {
+  border-color: white;
 }
 
 nav p {

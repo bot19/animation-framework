@@ -10,7 +10,7 @@ export const PAGE_DATA = {
         id: "section-1",
         position: 1,
         name: "section 1 hero HotPink", // name of section
-        nav: true, // true to show nav BG appropriate to section (1)
+        navBackground: true, // true to show nav BG appropriate to section (1)
         background: "HotPink", // name of CSS colour
         header: true, // only hero/1st section can have a header
         footer: true, // optional background footer; has section bg colour transition
@@ -26,7 +26,7 @@ export const PAGE_DATA = {
         id: "section-2",
         position: 2,
         name: "section 2 Tomato",
-        nav: true,
+        navBackground: true,
         background: "Tomato",
         footer: true,
       },
@@ -41,7 +41,7 @@ export const PAGE_DATA = {
         id: "section-3",
         position: 3,
         name: "section 3 MediumOrchid",
-        nav: true,
+        navBackground: true,
         background: "MediumOrchid",
         footer: true,
       },
@@ -56,7 +56,7 @@ export const PAGE_DATA = {
         id: "section-4",
         position: 4,
         name: "section 4 DeepSkyBlue",
-        nav: false,
+        navBackground: false,
         background: "DeepSkyBlue",
         footer: true,
       },

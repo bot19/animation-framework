@@ -1,8 +1,13 @@
 import "./Nav.css";
 
 export const Nav = ({ activeSection, navActive }) => {
+  const navBg = navActive?.navBackground;
+
   return (
-    <nav style={{ backgroundColor: navActive.background }}>
+    <nav
+      style={{ backgroundColor: navBg ? navActive?.background : "transparent" }}
+      className={navBg ? "background" : ""}
+    >
       <h1>Animation framework PoC</h1>
       {navActive && (
         <p>
