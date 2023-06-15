@@ -63,7 +63,7 @@ export const Section = ({
     <section ref={sectionRef} id={id} style={{ backgroundColor: background }}>
       {header && <header />}
       <article>
-        {Boolean(heading.length) && <h1>{heading}</h1>}
+        {Boolean(heading.length) && <h2>{heading}</h2>}
         <div>
           {Boolean(image.length) && (
             <img src={logoSrc[image]} className="logo" alt={`${image} logo`} />
