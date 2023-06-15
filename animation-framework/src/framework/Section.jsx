@@ -16,7 +16,6 @@ export const Section = ({
   content,
   nextSectionBg,
   setActiveSection,
-  setNavActive,
   heroHeaderRef,
 }) => {
   const { id, background, position, footer } = meta;
@@ -36,7 +35,6 @@ export const Section = ({
         // console.info("entry", entry.isIntersecting);
         if (entry.isIntersecting) {
           setActiveSection(meta);
-          setNavActive(meta);
         }
       });
     };
@@ -54,7 +52,7 @@ export const Section = ({
       }
     };
     // don't know why this isn't complaining that 'meta' isn't watched
-  }, [setActiveSection, setNavActive, meta]);
+  }, [setActiveSection, meta]);
 
   return (
     <section ref={sectionRef} id={id} style={{ backgroundColor: background }}>

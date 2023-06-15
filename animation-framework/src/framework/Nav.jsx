@@ -8,8 +8,8 @@ import "./Nav.css";
  * you want the nav bg to kick in so it can be clearly above page contents
  * the nav bg also is dictated by the section's meta data
  */
-export const Nav = ({ activeSection, navActive, heroHeaderRef }) => {
-  const navBg = navActive?.navBackground;
+export const Nav = ({ activeSection, heroHeaderRef }) => {
+  const navBg = activeSection?.navBackground;
   const [activeNav, setActiveNav] = useState(false);
 
   useEffect(() => {
@@ -49,17 +49,14 @@ export const Nav = ({ activeSection, navActive, heroHeaderRef }) => {
             activeNav ? "is-active" : ""
           }`}
           style={{
-            backgroundColor: navBg ? navActive?.background : "transparent",
+            backgroundColor: navBg ? activeSection?.background : "transparent",
           }}
         ></div>
         <div className="nav__content">
           <h1>Animation framework PoC</h1>
-          {navActive && (
-            <p>
-              Section active <b>{activeSection.id}</b> / Section controlling nav{" "}
-              <b>{navActive.id}</b>
-            </p>
-          )}
+          <p>
+            Section active <b>{activeSection?.id}</b>
+          </p>
         </div>
       </div>
     </nav>

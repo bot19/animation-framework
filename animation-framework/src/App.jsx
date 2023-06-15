@@ -8,17 +8,15 @@ import "./App.css";
 function App() {
   const [pageData] = useState(PAGE_DATA);
   const [activeSection, setActiveSection] = useState(null);
-  const [navActive, setNavActive] = useState(null);
   const stateRel = {
     activeSection,
     setActiveSection,
-    setNavActive,
   };
   const heroHeaderRef = useRef(); // only hero section has a header
 
   return (
     <>
-      <Nav {...{ activeSection, navActive, heroHeaderRef }} />
+      <Nav {...{ activeSection, heroHeaderRef }} />
       <main>
         {pageData.sections.map((section, i) => {
           // need to know the next section's bg colour to transition to it
