@@ -2,7 +2,7 @@ import "./Nav.css";
 
 export const Nav = ({ activeSection, navActive }) => {
   return (
-    <nav>
+    <nav style={{ backgroundColor: navActive.background }}>
       <h1>Animation framework PoC</h1>
       {navActive && (
         <p>
