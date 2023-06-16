@@ -15,8 +15,6 @@ export const Section = ({
   meta = {},
   content = {},
   nextSectionBg,
-  activeSection,
-  setActiveSection,
   heroHeaderRef,
 }) => {
   const { id, background, position, footer } = meta;
@@ -46,12 +44,13 @@ export const Section = ({
     const observer = new IntersectionObserver(handleIntersection, options);
     const sectionRefCached = sectionRef.current; // otherwise react complains
 
+    // no need to observe anymore once we've animated the section
     if (!animated && sectionRefCached) {
       observer.observe(sectionRefCached);
     }
 
     return () => {
-      if (animated || sectionRefCached) {
+      if (sectionRefCached) {
         observer.unobserve(sectionRefCached);
       }
     };
