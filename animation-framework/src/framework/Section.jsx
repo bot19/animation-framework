@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./Section.css";
 import viteLogo from "/vite.svg";
 import reactLogo from "../assets/react.svg";
@@ -22,9 +22,10 @@ export const Section = ({
   const { id, background, position, footer } = meta;
   const { heading, text, image } = content;
   const sectionRef = useRef();
-  const sectionActive = id === activeSection?.id;
-  const animatedElement = `${sectionActive ? "animate" : ""}`;
+  const [animated, setAnimated] = useState(false);
+  const animatedElement = `${animated ? "animate" : ""}`;
 
+  // initialise IO to animate section when 66% in VP; then unobserve post
   useEffect(() => {
     const options = {
       root: null, // uses VP
@@ -35,9 +36,9 @@ export const Section = ({
     const handleIntersection = (entries) => {
       // should only be 1 entry, as each section has own IO
       entries.forEach((entry) => {
-        // console.info("entry", entry.isIntersecting);
         if (entry.isIntersecting) {
-          setActiveSection(meta);
+          console.info("entry: animated", id, entry.isIntersecting);
+          setAnimated(true);
         }
       });
     };
@@ -45,17 +46,16 @@ export const Section = ({
     const observer = new IntersectionObserver(handleIntersection, options);
     const sectionRefCached = sectionRef.current; // otherwise react complains
 
-    if (sectionRefCached) {
+    if (!animated && sectionRefCached) {
       observer.observe(sectionRefCached);
     }
 
     return () => {
-      if (sectionRefCached) {
+      if (animated || sectionRefCached) {
         observer.unobserve(sectionRefCached);
       }
     };
-    // don't know why this isn't complaining that 'meta' isn't watched
-  }, [setActiveSection, meta]);
+  }, [animated]);
 
   return (
     <section ref={sectionRef} id={id} style={{ backgroundColor: background }}>
