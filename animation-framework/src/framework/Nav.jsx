@@ -9,9 +9,10 @@ import "./Nav.css";
  * the nav bg also is dictated by the section's meta data
  */
 export const Nav = ({ navSectionMeta, heroHeaderRef }) => {
-  const navBg = navSectionMeta?.navBackground;
+  const { background, id, navBackground } = navSectionMeta || {};
   const [activeNav, setActiveNav] = useState(false);
 
+  // TODO: combine it with the section under nav IO somehow?
   useEffect(() => {
     const options = {
       root: null,
@@ -45,17 +46,17 @@ export const Nav = ({ navSectionMeta, heroHeaderRef }) => {
     <nav>
       <div className="nav__container">
         <div
-          className={`nav__bg ${navBg ? "background" : ""} ${
+          className={`nav__bg ${navBackground ? "background" : ""} ${
             activeNav ? "is-active" : ""
           }`}
           style={{
-            backgroundColor: navBg ? navSectionMeta?.background : "transparent",
+            backgroundColor: navBackground ? background : "transparent",
           }}
         ></div>
         <div className="nav__content">
           <h1>Animation framework PoC</h1>
           <p>
-            Nav is over <b>{navSectionMeta?.id}</b>
+            Nav is over <b>{id}</b>
           </p>
         </div>
       </div>

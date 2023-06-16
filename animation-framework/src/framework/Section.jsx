@@ -21,7 +21,7 @@ export const Section = ({
   const { heading, text, image } = content;
   const sectionRef = useRef();
   const [animated, setAnimated] = useState(false);
-  const animatedElement = `${animated ? "animate" : ""}`;
+  const animatedElement = `${animated ? "animate" : ""}`; // run animation class
 
   // initialise IO to animate section when 66% in VP; then unobserve post
   useEffect(() => {

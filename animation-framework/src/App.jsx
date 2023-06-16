@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from "react";
 import { PAGE_DATA } from "./data";
 import { Section } from "./framework/Section";
 import { Nav } from "./framework/Nav";
+import { SETTINGS } from "./constants";
 
 import "./App.css";
 
@@ -15,21 +16,27 @@ function App() {
   useEffect(() => {
     const handleIntersection = (entries) => {
       entries.forEach((entry) => {
+        // set index of section currently under the nav
+        // FIXME: issue on section change but IO slow to pickup, why?
         if (
-          entry.boundingClientRect.top <= 128 &&
-          entry.boundingClientRect.bottom >= 128
+          entry.boundingClientRect.top <= SETTINGS.navHeight &&
+          entry.boundingClientRect.bottom >= SETTINGS.navHeight &&
+          entry.intersectionRatio > 0.01
         ) {
-          console.log("navSection", entry.target.dataset.index);
+          console.log(
+            "navSection",
+            entry.target.dataset.index,
+            entry.boundingClientRect
+          );
           setNavSection(entry.target.dataset.index);
         }
       });
     };
 
-    // 60px is the height of the nav
     const options = {
       root: document,
-      rootMargin: "-128px 0px 0px 0px",
-      threshold: [...Array(100).keys()].map((x) => x / 100),
+      rootMargin: `-${SETTINGS.navHeight}px 0px 0px 0px`,
+      threshold: [...Array(101).keys()].map((x) => x / 100),
     };
 
     const observer = new IntersectionObserver(handleIntersection, options);
@@ -63,12 +70,10 @@ function App() {
           return (
             <div ref={setRef(i)} data-index={i} key={section.meta.name}>
               <Section
-                {...{ ...section }}
+                {...section}
                 header={i === 0}
                 nextSectionBg={nextSectionBg}
                 heroHeaderRef={heroHeaderRef}
-                sectionIndex={i}
-                sectionRefArr={sectionRefArr.current}
               />
             </div>
           );
@@ -79,16 +84,3 @@ function App() {
 }
 
 export default App;
-
-/**
-<>
-  <div className="card">
-    <button onClick={() => setCount((count) => count + 1)}>
-      count is {count}
-    </button>
-  </div>
-  <p className="read-the-docs">
-    Click on the Vite and React logos to learn more
-  </p>
-</>
- */
