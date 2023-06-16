@@ -10,7 +10,7 @@ This set of requirements is for a particular project so it is very specific & in
 
 1. each page has multiple sections
 2. each section can have the following elements: optional background footer, colour and content (heading, text, image)
-3. only the 1st section will have a background header, if nav bg is set to `true` it should kick in as you begin to scroll down the page, not on render when page is in original position
+3. only the 1st section will have a background header, if nav bg is set to `true` it should kick in as you begin to scroll down the page, not on render when page is in original position (the header will be the nav's bg)
 4. You should be able to animate in elements with different timings and direcions
 5. animations to be triggered by scrolling into sections; once animated in, they do not need to animate out on reverse scroll
 6. a section can also dictate what the nav should be like when that section is active
@@ -35,4 +35,5 @@ This set of requirements is for a particular project so it is very specific & in
 1. Cool CSS colours & their names [here](https://www.quackit.com/css/css_color_codes.cfm)
 2. helpful: https://css-tricks.com/an-explanation-of-how-the-intersection-observer-watches/
 3. [helpful codepen](https://codepen.io/bot19/pen/VwVvRbq) from the article above (my fork, fixed an issue)
-4. ChatGPT 3.5 assisted [demo](https://codesandbox.io/s/test-react-intersectional-observer-set-section-as-active-when-majority-in-vp-9lvnsv) of functionality required
+4. ChatGPT 3.5 assisted; [my demo #1](https://codesandbox.io/s/test-react-intersectional-observer-set-section-as-active-when-majority-in-vp-9lvnsv) of functionality required
+5. [my demo #2](https://codesandbox.io/s/test-react-intersectional-observer-nav-knows-which-section-it-is-over-gyjpvj) making the nav know which section it is over
