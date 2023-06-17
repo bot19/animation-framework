@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import "./Section.css";
 import viteLogo from "/vite.svg";
 import reactLogo from "../assets/react.svg";
+import { SETTINGS } from "../constants";
 
 const logoSrc = {
   vite: viteLogo,
@@ -28,14 +29,37 @@ export const Section = ({
     const options = {
       root: null, // uses VP
       rootMargin: "0px",
-      threshold: 0.66, // execute CB when most of section in VP
+      threshold: [...Array(101).keys()].map((x) => x / 100),
     };
 
     const handleIntersection = (entries) => {
       // should only be 1 entry, as each section has own IO
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          console.info("entry: animated", id, entry.isIntersecting);
+        /**
+         * to accommodate sections smaller or bigger than VP
+         * smaller sections can be fully in VP, ratio = 1/+; round to 1
+         * bigger sections partially in VP, need to find this ratio; < 1
+         * then * 0.6 to find when it's mostly in VP, ie: 60% threshold
+         */
+        const maxIntersectionRatio =
+          Math.min(
+            (entry.rootBounds.height / entry.boundingClientRect.height).toFixed(
+              2
+            ),
+            1
+          ) * SETTINGS.intersectionThreshold;
+
+        if (
+          entry.isIntersecting &&
+          entry.intersectionRatio > maxIntersectionRatio
+        ) {
+          console.info(
+            "entry: animated",
+            id,
+            entry.isIntersecting,
+            entry.intersectionRatio,
+            maxIntersectionRatio
+          );
           setAnimated(true);
         }
       });
