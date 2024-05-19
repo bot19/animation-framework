@@ -114,12 +114,15 @@ export const Section = ({
         </div>
       </article>
       {footer && (
-        <footer
-          className={`to-animate animate-slide-in-bottom ${animatedElement}`}
-          style={{
-            backgroundImage: `linear-gradient(to bottom, ${background}, ${nextSectionBg})`,
-          }}
-        />
+        <>
+          <footer
+            className={`to-animate animate-slide-in-bottom ${animatedElement}`}
+            style={{
+              backgroundImage: `linear-gradient(to bottom, ${background}, ${nextSectionBg})`,
+            }}
+          />
+          <div className="footer-border" />
+        </>
       )}
     </section>
   );

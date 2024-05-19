@@ -31,27 +31,46 @@ h2 {
 }
 
 header,
-footer {
+footer,
+.footer-border {
   position: absolute;
   left: 0;
   width: 100%;
-  border: 0.5rem dashed white;
   box-sizing: border-box;
 }
 
 header {
   top: 0;
   border-radius: 0 0 2rem 2rem;
-  border-top: 0;
   height: 8rem;
+  border: 0.5rem solid white;
+  border-top: 0;
 }
 
 /* has the responsibility to transition smoothly diff section bg colours */
-footer {
-  border-radius: 2rem 2rem 0 0;
+footer,
+.footer-border {
   bottom: 0;
-  border-bottom: 0;
   height: 16rem;
+}
+
+/* https://stackoverflow.com/questions/22666063/how-to-fade-the-edge-of-a-div-with-just-css */
+.footer-border {
+  border: 0.5rem solid white;
+  border-radius: 2rem 2rem 0 0;
+  border-bottom: 0;
+
+  --mask: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 1) 0,
+      rgba(0, 0, 0, 1) 40%,
+      rgba(0, 0, 0, 0) 95%,
+      rgba(0, 0, 0, 0) 0
+    )
+    100% 50% / 100% 100% repeat-x;
+
+  -webkit-mask: var(--mask);
+  mask: var(--mask);
 }
 
 /*
